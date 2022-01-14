@@ -253,8 +253,14 @@ export default class PlayScene extends Scene {
         "celt",
         "celt",
         "celt",
+        "celt",
+        "celt",
+        "celt",
         "buffCelt",
-      ][~~(Math.random() * 5)];
+        "buffCelt",
+        "buffCelt",
+        "horseRiderCelt",
+      ][~~(Math.random() * 11)];
       const phantom = new Phantom(this, phantomType);
       phantom.body.x = this.game.width;
       phantom.body.y = this.gridPadTop + this.gridCellSize * row;

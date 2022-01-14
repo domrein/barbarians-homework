@@ -25,6 +25,7 @@ export default class Phantom extends Actor {
     const anim = {
       celt: "celt",
       buffCelt: "buffCelt",
+      horseRiderCelt: "horseRiderCelt",
     }[type];
 
     this.graphics.push(new Sprite(this));
@@ -33,17 +34,20 @@ export default class Phantom extends Actor {
     this.health = {
       celt: 5,
       buffCelt: 20,
+      horseRiderCelt: 3,
     }[type];
 
     this.moveCount = 0;
     this.movePeriod = {
       celt: 20,
       buffCelt: 10,
+      horseRiderCelt: 30,
     }[type];
 
     this.moveSpeed = {
       celt: .025,
       buffCelt: 0.015,
+      horseRiderCelt: 0.1,
     }[type];
   }
 

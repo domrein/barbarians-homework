@@ -44,6 +44,7 @@ export default class _Game extends Game {
       celt: {frames: ["celt1", "celt2", "celt3", "celt4", "celt5"], frameRate: 10, looping: true},
       guardsman: {frames: ["gaurdsmen1", "gaurdsmen2", "gaurdsmen3", "gaurdsmen4", "gaurdsmen5", "gaurdsmen6", "gaurdsmen7", "gaurdsmen8"], frameRate: 10, looping: true},
       introSequence: {frames: ["intro_sequence1", "intro_sequence2", "intro_sequence3", "intro_sequence4", "intro_sequence5", "intro_sequence6"], frameRate: 10, looping: true},
+      horseRiderCelt: {frames: ["horse_rider_celt1", "horse_rider_celt2", "horse_rider_celt3", "horse_rider_celt4", "horse_rider_celt5", "horse_rider_celt6"], frameRate: 6, looping: true},
       minera: {frames: ["minera1", "minera2", "minera3", "minera4", "minera5", "minera6"], frameRate: 10, looping: true},
       minerb: {frames: ["minerb1", "minerb2", "minerb3", "minerb4", "minerb5", "minerb6"], frameRate: 10, looping: true},
       saltItem: {frames: ["salt_item1", "salt_item2", "salt_item3"], frameRate: 10, looping: true},
