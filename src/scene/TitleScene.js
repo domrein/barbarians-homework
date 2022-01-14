@@ -23,32 +23,32 @@ export default class TitleScene extends Scene {
 
     this.titleGraphic = new Actor(this);
     this.titleGraphic.graphics.push(new Sprite(this.titleGraphic));
-    this.titleGraphic.graphics[0].play("titleScreen");
+    this.titleGraphic.graphics[0].play("introSequence");
     this.titleGraphic.body = new Body();
     this.addActor(this.titleGraphic);
 
-    const pup = new Actor(this);
-    pup.graphics.push(new Sprite(pup));
-    pup.graphics[0].play("puppy");
-    pup.graphics[0].z = 1;
-    pup.graphics[0].flip = true;
-    pup.graphics[0].scale.x = 2;
-    pup.graphics[0].scale.y = 2;
-    pup.body = new Body();
-    pup.body.x = 140;
-    pup.body.y = 130;
-    this.addActor(pup);
+    // const pup = new Actor(this);
+    // pup.graphics.push(new Sprite(pup));
+    // pup.graphics[0].play("puppy");
+    // pup.graphics[0].z = 1;
+    // pup.graphics[0].flip = true;
+    // pup.graphics[0].scale.x = 2;
+    // pup.graphics[0].scale.y = 2;
+    // pup.body = new Body();
+    // pup.body.x = 140;
+    // pup.body.y = 130;
+    // this.addActor(pup);
 
-    const phantom = new Actor(this);
-    phantom.graphics.push(new Sprite(phantom));
-    phantom.graphics[0].play("phantom");
-    phantom.graphics[0].z = 1;
-    phantom.graphics[0].scale.x = 2;
-    phantom.graphics[0].scale.y = 2;
-    phantom.body = new Body();
-    phantom.body.x = 290;
-    phantom.body.y = 140;
-    this.addActor(phantom);
+    // const phantom = new Actor(this);
+    // phantom.graphics.push(new Sprite(phantom));
+    // phantom.graphics[0].play("phantom");
+    // phantom.graphics[0].z = 1;
+    // phantom.graphics[0].scale.x = 2;
+    // phantom.graphics[0].scale.y = 2;
+    // phantom.body = new Body();
+    // phantom.body.x = 290;
+    // phantom.body.y = 140;
+    // this.addActor(phantom);
   }
 
   update() {
@@ -63,11 +63,11 @@ export default class TitleScene extends Scene {
       sparkle.graphics[0].width = size;
       sparkle.graphics[0].height = size;
       switch (~~(Math.random() * 5)) {
-        case 0: sparkle.graphics[0].color = "#8bff1b"; break;
-        case 1: sparkle.graphics[0].color = "#1babff"; break;
-        case 2: sparkle.graphics[0].color = "#f31bff"; break;
-        case 3: sparkle.graphics[0].color = "#ff1b1b"; break;
-        case 4: sparkle.graphics[0].color = "#ffab1b"; break;
+        case 0: sparkle.graphics[0].color = "#cc1717"; break;
+        case 1: sparkle.graphics[0].color = "#e17d24"; break;
+        case 2: sparkle.graphics[0].color = "#e6c932"; break;
+        case 3: sparkle.graphics[0].color = "#b71726"; break;
+        case 4: sparkle.graphics[0].color = "#e1812c"; break;
       }
       sparkle.graphics[0].alpha = 1;
       sparkle.graphics[0].z = 2;

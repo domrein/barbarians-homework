@@ -18,7 +18,7 @@ export default class Heart extends Actor {
     this.body.type = "heart";
 
     this.graphics.push(new Sprite(this));
-    this.graphics[0].play("heart");
+    this.graphics[0].play("saltItem");
     this.graphics[0].flip = true;
     this.graphics[0].pivot.x = 16;
     this.graphics[0].pivot.y = 16;

@@ -32,7 +32,7 @@ export default class PlayScene extends Scene {
     this.gridPadLeft = 12;
     this.gridPadTop = 73;
     this.gridRows = 5;
-    this.gridColumns = 8;
+    this.gridColumns = 9;
 
     this.gridPets = [];
     this.gridPhantoms = [];
@@ -78,11 +78,10 @@ export default class PlayScene extends Scene {
     this.petSelectorKitty.body.width = 48;
     this.petSelectorKitty.body.height = 48;
     this.petSelectorKitty.graphics.push(new Sprite(this.petSelectorKitty));
-    this.petSelectorKitty.graphics[0].play("kitty");
+    this.petSelectorKitty.graphics[0].play("minera");
     this.petSelectorKitty.body.y = 10;
     this.petSelectorKitty.body.x = 150;
     this.petSelectorKitty.graphics[0].z = 3;
-    this.petSelectorKitty.graphics[0].flip = true;
     this.addActor(this.petSelectorKitty);
 
     this.petSelectorKittyGauge = new Actor(this);
@@ -102,11 +101,10 @@ export default class PlayScene extends Scene {
     this.petSelectorPuppy.body.width = 48;
     this.petSelectorPuppy.body.height = 48;
     this.petSelectorPuppy.graphics.push(new Sprite(this.petSelectorPuppy));
-    this.petSelectorPuppy.graphics[0].play("puppy");
+    this.petSelectorPuppy.graphics[0].play("guardsman");
     this.petSelectorPuppy.body.y = 9;
     this.petSelectorPuppy.body.x = 218;
     this.petSelectorPuppy.graphics[0].z = 3;
-    this.petSelectorPuppy.graphics[0].flip = true;
     this.addActor(this.petSelectorPuppy);
 
     this.petSelectorPuppyGauge = new Actor(this);
@@ -126,11 +124,10 @@ export default class PlayScene extends Scene {
     this.petSelectorSnake.body.width = 48;
     this.petSelectorSnake.body.height = 48;
     this.petSelectorSnake.graphics.push(new Sprite(this.petSelectorSnake));
-    this.petSelectorSnake.graphics[0].play("snake");
+    this.petSelectorSnake.graphics[0].play("archer");
     this.petSelectorSnake.body.y = 14;
     this.petSelectorSnake.body.x = 285;
     this.petSelectorSnake.graphics[0].z = 3;
-    this.petSelectorSnake.graphics[0].flip = true;
     this.addActor(this.petSelectorSnake);
 
     this.petSelectorSnakeGauge = new Actor(this);
@@ -161,7 +158,6 @@ export default class PlayScene extends Scene {
     this.gridPetPlacer.graphics[0].z = 4;
     this.gridPetPlacer.graphics[0].visible = false;
     this.gridPetPlacer.graphics[0].alpha = .5;
-    this.gridPetPlacer.graphics[0].flip = true;
     this.gridPetPlacer.graphics[0].offset = new Point(-24, -24);
     this.addActor(this.gridPetPlacer);
 
@@ -252,7 +248,14 @@ export default class PlayScene extends Scene {
       }
       while (row === -1 || this.deadRows.has(row));
 
-      const phantom = new Phantom(this);
+      const phantomType = [
+        "celt",
+        "celt",
+        "celt",
+        "celt",
+        "buffCelt",
+      ][~~(Math.random() * 5)];
+      const phantom = new Phantom(this, phantomType);
       phantom.body.x = this.game.width;
       phantom.body.y = this.gridPadTop + this.gridCellSize * row;
       this.addActor(phantom);
@@ -310,7 +313,7 @@ export default class PlayScene extends Scene {
         crater.body.x = this.gridPadLeft + i * this.gridCellSize;
         crater.body.y = this.gridPadTop + row * this.gridCellSize;
         crater.graphics.push(new Sprite(crater));
-        crater.graphics[0].play("crater");
+        crater.graphics[0].play("spike");
         crater.graphics[0].z = 1;
         this.addActor(crater);
 
@@ -351,17 +354,17 @@ export default class PlayScene extends Scene {
     // see what we're touching
     // create pet
     if (this.petSelectorKitty.body.contains(touch) && this._hearts >= this.kittyCost) {
-      this.gridPetPlacer.graphics[0].play("kitty");
+      this.gridPetPlacer.graphics[0].play("minera");
       this.gridPetPlacer.graphics[0].visible = true;
       this.dragTarget = {type: "create", pet: "kitty"};
     }
     else if (this.petSelectorPuppy.body.contains(touch) && this._hearts >= this.puppyCost) {
-      this.gridPetPlacer.graphics[0].play("puppy");
+      this.gridPetPlacer.graphics[0].play("guardsman");
       this.gridPetPlacer.graphics[0].visible = true;
       this.dragTarget = {type: "create", pet: "puppy"};
     }
     else if (this.petSelectorSnake.body.contains(touch) && this._hearts >= this.snakeCost) {
-      this.gridPetPlacer.graphics[0].play("snake");
+      this.gridPetPlacer.graphics[0].play("archer");
       this.gridPetPlacer.graphics[0].visible = true;
       this.dragTarget = {type: "create", pet: "snake"};
     }

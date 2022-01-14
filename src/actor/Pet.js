@@ -22,8 +22,13 @@ export default class Pet extends Actor {
     this.body.type = "pet";
 
     this.graphics.push(new Sprite(this));
-    this.graphics[0].play(type);
-    this.graphics[0].flip = true;
+    let anim = {
+      snake: "archer",
+      kitty: Math.random() > .5 ? "minera" : "minerb",
+      puppy: "guardsman",
+    }[type];
+
+    this.graphics[0].play(anim);
     this.graphics[0].z = 0;
 
     this.health = 1;

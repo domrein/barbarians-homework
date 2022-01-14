@@ -22,13 +22,29 @@ export default class Phantom extends Actor {
     this.body.beacon.observe(this, "collided", this.onCollided);
     this.body.type = "phantom";
 
+    const anim = {
+      celt: "celt",
+      buffCelt: "buffCelt",
+    }[type];
+
     this.graphics.push(new Sprite(this));
-    this.graphics[0].play("phantom");
+    this.graphics[0].play(anim);
     this.graphics[0].z = 0;
-    this.health = 5;
+    this.health = {
+      celt: 5,
+      buffCelt: 20,
+    }[type];
 
     this.moveCount = 0;
-    this.movePeriod = 20;
+    this.movePeriod = {
+      celt: 20,
+      buffCelt: 10,
+    }[type];
+
+    this.moveSpeed = {
+      celt: .025,
+      buffCelt: 0.015,
+    }[type];
   }
 
   update() {
@@ -38,7 +54,7 @@ export default class Phantom extends Actor {
 
     // this.body.velocity.m = .3 - Math.sin(this.moveCount / 35) * .15;
     if (this.moveCount >= 0) {
-      this.body.velocity.add(new Vector(.025 + Math.sin(this.moveCount / this.movePeriod) * .02, Math.PI));
+      this.body.velocity.add(new Vector(this.moveSpeed + Math.sin(this.moveCount / this.movePeriod) * .02, Math.PI));
       // this.body.velocity.add(new Vector(.1025 + Math.sin(this.moveCount / this.movePeriod) * .02, Math.PI));
     }
   }

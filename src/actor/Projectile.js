@@ -17,7 +17,10 @@ export default class Projectile extends Actor {
     this.body.type = "projectile";
 
     this.graphics.push(new Sprite(this));
-    this.graphics[0].play(type);
+    let anim = {
+      snakespit: "arrow",
+    }[type];
+    this.graphics[0].play(anim);
     switch (type) {
       case "snakespit":
         this.body.velocity.m = 6;
