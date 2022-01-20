@@ -49,6 +49,7 @@ export default class _Game extends Game {
       minerb: {frames: ["minerb1", "minerb2", "minerb3", "minerb4", "minerb5", "minerb6"], frameRate: 10, looping: true},
       saltItem: {frames: ["salt_item1", "salt_item2", "salt_item3"], frameRate: 10, looping: true},
       spike: {frames: ["spike1"], frameRate: 10, looping: true},
+      winScreen: {frames: ["win_screen1", "win_screen2", "win_screen3", "win_screen4", "win_screen5", ], frameRate: 10, looping: true},
 
       heart: {frames: ["heart1"], frameRate: 10, looping: true},
       kitty: {frames: ["kitty1", "kitty2", "kitty3", "kitty4"], frameRate: 10, looping: true},

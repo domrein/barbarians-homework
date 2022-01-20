@@ -77,6 +77,11 @@ const sprites = [
   "assets/images/salt_item2.png",
   "assets/images/salt_item3.png",
   "assets/images/spike1.png",
+  "assets/images/win_screen1.png",
+  "assets/images/win_screen2.png",
+  "assets/images/win_screen3.png",
+  "assets/images/win_screen4.png",
+  "assets/images/win_screen5.png",
 
   "assets/images/heart1.png",
   "assets/images/kitty1.png",

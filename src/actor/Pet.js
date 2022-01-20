@@ -44,7 +44,7 @@ export default class Pet extends Actor {
         this.cooldown = 600;
         break;
       case "puppy":
-        this.health = 10;
+        this.health = 30;
         break;
       case "snake":
         this.health = 1;

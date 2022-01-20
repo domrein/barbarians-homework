@@ -43,9 +43,9 @@ export default class PlayScene extends Scene {
     this.lastSpawn = 0;
 
     this._hearts = 0;
-    this.kittyCost = 5;
-    this.puppyCost = 7;
-    this.snakeCost = 2;
+    this.kittyCost = 6;
+    this.puppyCost = 8;
+    this.snakeCost = 4;
 
     // background
     const background = new Actor(this);
@@ -180,7 +180,8 @@ export default class PlayScene extends Scene {
     // listen for actors dying
     this.beacon.observe(this, "actorRemoved", this.onActorRemoved);
 
-    this.hearts = 5;
+    this.hearts = 8;
+    this.youWin = false;
   }
 
   get hearts() {
@@ -234,9 +235,38 @@ export default class PlayScene extends Scene {
       spawnChance = 0.97;
       closestSpawn = 40;
     }
-    else {
+    else if (this.count < spawnInterval * 5.2 + spawnLag) {
+      // break in spawns
+    }
+    else if (this.count < spawnInterval * 6 + spawnLag) {
       spawnChance = 0.9;
       closestSpawn = 10;
+    }
+    else if (this.count < spawnInterval * 6.8 + spawnLag) {
+      // break in spawns
+    }
+    else {
+      // you win
+      if (this.youWin) {
+      }
+      else {
+        const win = new Actor(this);
+        win.graphics.push(new Sprite(win));
+        win.graphics[0].play("winScreen");
+        win.graphics[0].z = 100;
+        // win.graphics[0].flip = true;
+        // win.graphics[0].scale.x = 2;
+        // win.graphics[0].scale.y = 2;
+        win.body = new Body();
+        win.body.x = 0;
+        win.body.y = 0;
+        this.addActor(win);
+
+        this.youWin = true;
+
+        this.gameOver = true;
+        setTimeout(() => this.beacon.emit("completed", TitleScene), 3000);
+      }
     }
 
     // spawn phantoms
